@@ -1,0 +1,12 @@
+/* Prevents padding for adding additional 
+weight or height*/
+html {
+    box-sizing: border-box;
+}
+/* always stretch the background - full height of 
+the screen even if the content
+is not enough to take the full height */
+body {
+    margin: 0;
+    min-height: 100vh;
+}
