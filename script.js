@@ -79,14 +79,15 @@ async function getNasaPictures() {
 function saveFavorite(itemUrl) {
     // Loop through results array
     resultsArray.forEach((item) => {
-        if(item.url.includes(itemUrl)) {
+        if(item.url.includes(itemUrl) && !favorites[itemUrl]) {
             favorites[itemUrl] = item;
-            console.log(favorites);
             // Save Confirmation
             saveConfirmed.hidden = false;
             setTimeout(() => {
                 saveConfirmed.hidden = true;
             }, 2000);
+            // Set favorites in local storage
+            localStorage.setItem('nasaFavorites',JSON.stringify(favorites));
         }
     });
 }
